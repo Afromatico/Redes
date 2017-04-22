@@ -240,7 +240,7 @@ static void *Drcvr(void *ppp) {
 			ack[ACK2] = 48 + (k -(k/1000)*1000)/100;
 			ack[ACK3] = 48 + (k -(k/100)*100)/10;
 			ack[ACK4] = 48 + (k -(k/10)*10);
-			++k;
+			k = (k+1)%9999;
 			ack[DID] = cl;
 			ack[DTYPE] = ACK;
 
@@ -283,7 +283,7 @@ static void *Drcvr(void *ppp) {
 		ack[ACK2] = 48 + (k -(k/1000)*1000)/100;
 		ack[ACK3] = 48 + (k -(k/100)*100)/10;
 		ack[ACK4] = 48 + (k -(k/10)*10);
-		++k;
+		k = (k+1)%9999;
 	    ack[DID] = cl;
 	    ack[DTYPE] = ACK;
 	/*	ack[ACK1] = inbuf[ACK1];
